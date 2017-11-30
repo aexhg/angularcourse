@@ -9,10 +9,5 @@ import { ShoppinglistService } from './shopping-list/shopping-list.service';
   providers: [RecipeService, ShoppinglistService]
 })
 export class AppComponent {
-  showRecipe: boolean = true;
-
-  onRecipeSelected(showRecipe: boolean){
-    this.showRecipe = showRecipe;
-  }
-
+  
 }
