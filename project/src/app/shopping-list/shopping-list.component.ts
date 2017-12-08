@@ -27,4 +27,8 @@ export class ShoppingListComponent implements OnInit {
     this.subscription.unsubscribe();
   }
 
+  onEditIngredient(i: number){
+    this.slService.startedEditing.next(i);
+  }
+
 }

@@ -1,6 +1,7 @@
 import { Recipe } from './recipes-list/recipe.model'
 import { EventEmitter } from '@angular/core';
 import { Ingredient } from './../shared/ingredient.model';
+import { Subject } from 'rxjs/Subject';
 
 export class RecipeService {
     private recipes: Recipe[] = [
@@ -24,6 +25,7 @@ export class RecipeService {
         )
       ];
 
+      recipeSubject = new Subject<Recipe[]>();
       recipeSelected = new EventEmitter<Recipe>();
 
       getRecipesList(){
@@ -32,6 +34,21 @@ export class RecipeService {
 
       getReceipById(index: number):Recipe{
         return this.recipes[index];
+      }
+
+      addRecipe(recipe: Recipe){
+        this.recipes.push(recipe);
+        this.recipeSubject.next(this.getRecipesList());
+      }
+
+      updatedRecipe(index: number, recipe: Recipe){
+        this.recipes[index] = recipe;
+        this.recipeSubject.next(this.getRecipesList());
+      }
+
+      deleteRecipe(index: number){
+       this.recipes.splice(index,1) ;
+       this.recipeSubject.next(this.getRecipesList());
       }
 
 }
