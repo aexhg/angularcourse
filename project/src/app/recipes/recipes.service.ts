@@ -28,6 +28,11 @@ export class RecipeService {
       recipeSubject = new Subject<Recipe[]>();
       recipeSelected = new EventEmitter<Recipe>();
 
+      saveRecipesList(recipes: Recipe[]){
+        this.recipes = recipes.slice();
+        this.recipeSubject.next(this.getRecipesList());
+      }
+
       getRecipesList(){
           return this.recipes.slice();
       }

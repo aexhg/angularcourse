@@ -15,6 +15,8 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
 import { RecipEditComponent } from './recipes/recip-edit/recip-edit.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
